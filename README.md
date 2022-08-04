@@ -1,5 +1,7 @@
 # FracturalCSharpEvents
 
+![Unit Tests](https://github.com/Fractural/FracturalCSharpEvents/actions/workflows/tests.yml/badge.svg)
+
 This plugin creates an inspector window that allows you to link C# events in the Godot editor.
 
 This inspector is compatible with any C# event, including `Action` and `EventHandler` events.
