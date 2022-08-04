@@ -30,7 +30,7 @@ jobs:
         run: |
           mkdir release
           mv addons/FracturalCSharpEvents release
-          zip -r release.zip release
+          zip -r Release.zip release/*
 
       - name: Upload Release
         uses: actions/upload-artifact@v2
@@ -42,4 +42,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: release.zip
+          files: Release.zip
