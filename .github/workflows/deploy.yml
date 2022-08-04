@@ -19,5 +19,5 @@ jobs:
         env:
           REPO: self
           BRANCH: release
-          FOLDER: addons/FracturalCSharpEvent
+          FOLDER: addons/FracturalCSharpEvents
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
