@@ -1,4 +1,4 @@
-name: Deploy Release Branch
+name: 🚀 Deploy Release
 
 on:
   push:
@@ -7,17 +7,30 @@ on:
 
 jobs:
   deploy:
-    name: Deploy release branch
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-      # Any prerequisite steps
-      - uses: actions/checkout@master
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
 
       # Deploy to local repo
-      - name: Deploy
+      - name: Deploy to Release Branch
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
           BRANCH: release
-          FOLDER: addons/FracturalCSharpEvents
+          FOLDER: addons/FracturalCommons
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release
+        run: |
+          mkdir release
+          mv addons/FracturalCSharpEvents release
+
+      - name: Upload Release
+        uses: actions/upload-artifact@v2
+        with:
+          name: Release
+          path: release
