@@ -29,7 +29,7 @@ jobs:
       - name: Create Release
         run: |
           mkdir release
-          mv addons/FracturalCSharpEvents release
+          mv addons/FracturalCommons addons/FracturalCSharpEvents release
           pushd release
           zip -r ../Release.zip *
           popd
