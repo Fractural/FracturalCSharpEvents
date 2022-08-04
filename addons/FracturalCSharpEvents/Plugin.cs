@@ -8,19 +8,17 @@ namespace Fractural.CSharpEvents
 	public class Plugin : ExtendedPlugin
 	{
 		public CSharpEventsInspector EventsInspector { get; set; }
+		public override string PluginName => "FracturalCSharpEvents";
 
-		public override void _EnterTree()
+		protected override void Load()
 		{
-			base._EnterTree();
-
 			var inspectorWindowPrefab = ResourceLoader.Load<PackedScene>("res://addons/FracturalCSharpEvents/CSharpEventLinkerInspector.tscn");
 			EventsInspector = inspectorWindowPrefab.Instance<CSharpEventsInspector>();
 			EventsInspector.Init(this, AssetsRegistry);
 			AddManagedControlToDock(EditorPlugin.DockSlot.RightBr, EventsInspector);
-			GD.PushWarning("Loaded FracturalCSharpEvents");
 		}
 
-		public override void _ExitTree()
+		protected override void Unload()
 		{
 			DestroyManagedControl(EventsInspector);
 		}

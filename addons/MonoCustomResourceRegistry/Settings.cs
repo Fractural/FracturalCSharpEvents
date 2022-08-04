@@ -14,14 +14,14 @@ namespace MonoCustomResourceRegistry
 		}
 
 		public static string ClassPrefix => GetSettings(nameof(ClassPrefix)).ToString();
-		public static ResourceSearchType SearchType => (ResourceSearchType) GetSettings(nameof(SearchType));
-		public static ReadOnlyCollection<string> ResourceScriptDirectories => new ReadOnlyCollection<string>(((Array) GetSettings(nameof(ResourceScriptDirectories))).Cast<string>().ToList());
+		public static ResourceSearchType SearchType => (ResourceSearchType)GetSettings(nameof(SearchType));
+		public static ReadOnlyCollection<string> ResourceScriptDirectories => new ReadOnlyCollection<string>(((Array)GetSettings(nameof(ResourceScriptDirectories))).Cast<string>().ToList());
 
 		public static void Init()
 		{
 			AddSetting(nameof(ClassPrefix), Variant.Type.String, "");
 			AddSetting(nameof(SearchType), Variant.Type.Int, ResourceSearchType.Recursive, PropertyHint.Enum, "Recursive,Namespace");
-			AddSetting(nameof(ResourceScriptDirectories), Variant.Type.StringArray, new  Array<string> (new string[]{ "res://"}));
+			AddSetting(nameof(ResourceScriptDirectories), Variant.Type.StringArray, new Array<string>(new string[] { "res://" }));
 		}
 
 		private static object GetSettings(string title)
