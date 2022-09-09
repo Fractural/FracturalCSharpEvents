@@ -1,4 +1,4 @@
-# FracturalCSharpEvents
+# Fractural CSharp Events 🌃
 
 ![Deploy](https://github.com/Fractural/FracturalCSharpEvents/actions/workflows/deploy.yml/badge.svg) ![Unit Tests](https://github.com/Fractural/FracturalCSharpEvents/actions/workflows/tests.yml/badge.svg)
 
